@@ -1,0 +1,249 @@
+import  React ,{ Component } from "react";
+import  { Fragment } from 'react';  
+import ModalPopup from './modal_popup';  
+
+
+  class myAccount extends Component {
+
+    constructor(props) {
+      super(props);
+      this.contactSubmit2 = this.contactSubmit2.bind(this);
+      this.state = {
+        userFields: {},
+        errors: {},
+        verify_html: null,
+        code_alert: false,
+        user: null,
+        alert:[],
+        showModalPopup: false  
+  
+      };
+  
+      let userFields = this.state.userFields;
+      userFields["FirstName"] = null;
+      userFields["LastName"] = null;
+      userFields["PhoneNumber"] = null;
+      userFields["Email"] = null;
+    
+  
+    }
+    async componentDidMount() {
+   
+        this.getProfileInfo();
+    
+      }
+      //add state to fields
+      handleChange(field, e) {
+        let userFields = this.state.userFields;
+        userFields[field] = e.target.value;
+        this.setState({ userFields });
+    
+      }
+
+      async getProfileInfo() {
+        await fetch('http://localhost:8000/backend/profile', {
+          method: "POST",
+          body: JSON.stringify({
+          token: localStorage.getItem("token")
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8"
+          }
+        })
+          .then(response => response.json())
+          .then(data => {
+            this.setState({
+              user: data.user[0]
+            });
+            console.table(this.state.user)
+            let firstName = this.state.user.username.charAt(0).toUpperCase() + this.state.user.username.slice(1);
+            let userFields = this.state.userFields;
+            userFields["FirstName"] = firstName;
+            userFields["PhoneNumber"] = "0" + this.state.user.phone;
+            userFields["Email"] = this.state.user.email;
+            document.getElementById("first-name").value = firstName;
+            document.getElementById("user-email").value = this.state.user.email;
+            document.getElementById("phone").value = "0" + this.state.user.phone;
+          });
+      }
+      
+
+  // handle form submition
+  contactSubmit2(e) {
+    e.preventDefault();
+    if (this.handleValidation2()) {
+      return ("OK")
+    }
+    else {
+      return ("Not Ok")
+    }
+  }
+
+  isShowPopup = (status) => {  
+    this.setState({ showModalPopup: status });  
+  }; 
+ 
+
+
+  render() {
+    const App = () => {
+      const triggerText = 'Open form';
+      const onSubmit = (event) => {
+        event.preventDefault(event);
+        console.log(event.target.name.value);
+        console.log(event.target.email.value);
+      };
+  
+    }
+
+
+    return (
+      <>
+        {/* =============== user profile =============== */}
+        
+
+
+      <div className="backgroundUser">
+                                          {/* ======= user content ====== */}
+        <div className="card-position">
+         
+        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" width ="200" height ="200"alt=""/>
+       
+        <input id="first-name" className="reviews-title" type="text8" name="FirstName"autocomplete="off" required
+                        
+                        value={this.state.userFields["FirstName"]}
+                        onChange={this.handleChange.bind(this,  " FirstName")}
+                      />
+       
+         {/* <a href=""> <button class="prof-button">Edit profile</button></a> */}
+
+       
+         <Fragment>  
+           <div onClick={() => this.isShowPopup(true)}>  
+             <button class="prof-button" >Edit profile</button> 
+             <button class="gear-button"><span class="fa fa-gear"></span> </button> 
+           </div>  
+       <ModalPopup  
+         showModalPopup={this.state.showModalPopup}  
+         onPopupClose={this.isShowPopup}  
+       ></ModalPopup>  
+     </Fragment>  
+        
+
+       
+       <div className="package-tab tb-design ">
+      <ul className="nav nav-pills" id="pills-tab" role="tablist">
+              <li className="nav-item" role="presentation">
+                    <button className="nav-link active button-tab" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+                                      Activity Feed</button>
+                      </li>
+               <li className="nav-item" role="presentation">
+          <button className="nav-link button-tab" id="pills-contact-tab1 " data-bs-toggle="pill" data-bs-target="#pills-contact1" type="button" role="tab" aria-controls="pills-contact1" aria-selected="false"> 
+                              Trips</button>
+                </li>
+                   <li className="nav-item" role="presentation">
+                 <button className="nav-link button-tab " id="pills-contact-tab2 " data-bs-toggle="pill" data-bs-target="#pills-contact2" type="button" role="tab" aria-controls="pills-contact2" aria-selected="false"> 
+                 Photos</button>
+                      </li>
+               <li className="nav-item" role="presentation">
+                      <button className="nav-link button-tab" id="pills-contact-tab3" data-bs-toggle="pill" data-bs-target="#pills-contact3" type="button" role="tab" aria-controls="pills-contact3" aria-selected="false"> 
+                              Reviews</button>
+                        </li>
+                  </ul>
+               </div> 
+                                        <div className="card-position2">
+                                        <div className="tab-content p-tab-content" id="pills-tabContent">
+                                            <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                                <div className="row">
+                                                    <div className="col-lg-12">
+                                                        <div className="tab-content-1">
+                                                            <div className="p-overview centered  ">
+                                                                 <div className="tri-cont"><h5>Fill Out Your Profile</h5></div>
+                                                               <div className="text">Add photos and info to your profile so people can find you easily and get to know you better!
+                                                               </div>
+                                                            </div>
+                                    
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+     <div className="tab-pane fade" id="pills-contact1" role="tabpanel" aria-labelledby="pills-contact-tab1">
+                                                <div className="tab-contant-2">
+                                                <div className="p-overview centered  ">
+                                                                 <div className="tri-cont"><h5>Create your first Trip!</h5></div>
+                                                                 <div className="text"> Build wish lists, share recommendations, and organize travel plans with Trips!
+                                                                 </div> <div className="linko"><a href="plan">  Create Trip</a> </div>
+                                                            </div>
+                                                </div>
+                                            </div>
+
+                                            <div className="tab-pane fade" id="pills-contact2" role="tabpanel" aria-labelledby="pills-contact-tab2">
+                                                <div className="tab-contant-2">
+                                                <div className="p-overview  centered  ">
+                                                                 <div className="tri-cont"><h5>Post your first photo!</h5></div>
+                                                                 <div className="text">  Help other travelers see what you’ve seen — so they know what to expect!
+                                                                 </div> <div className="linko"><a href="">  Post photo</a> </div></div>
+                                                            
+                                                </div>
+                                            </div>
+                                            <div className="tab-pane fade" id="pills-contact3" role="tabpanel" aria-labelledby="pills-contact-tab3">
+                                                <div className="tab-contant-2">
+                                                <div className="p-overview centered ">
+                                                                 <div className="tri-cont"><h5>Write your first review!</h5></div>
+                                                                 <div className="text">   Your opinion matters! Start reviewing hotels, things to do & more on EgyBook.
+                                                                 </div> <div className="linko">   <a href=""> Write Review</a> </div></div>
+                                                           
+                                                </div>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    </div> 
+      
+
+
+
+        
+      
+
+      
+  
+  <div className="card-position3">
+  <div class="ui_header ">Intro </div>
+   
+      
+  <div className="fonty"><a href="" > <span class=" fa fa-plus"></span>  Add your current city</a></div>
+  <div className="fonty"><a href="" class=" fa fa-calender"> <span class="ui_icon plus 		far fa-calendar "></span>  Joined in 2022</a></div>
+  <div className="fonty"><a href="" ><span class="fa fa-plus"></span> Add a website</a></div>
+  <div className="fonty"><a href="" ><span class=" fa fa-plus"></span> Write some details about yourself</a></div>
+   
+  </div>
+
+
+   <div class="card-position4">
+     <div class="ui_header">Share your travel advice</div>                       
+       <div><button class="post-pic" > <div class="fa fa-camera "></div> <span > Post photos</span></button> </div>                     
+       <div className="fonty"> <a href=""><div class="fa fa-edit"></div> <span>   Write review</span></a></div>
+             
+     </div>                                    
+                                           
+                                            
+     
+
+
+
+
+
+
+
+       </div>
+
+      </>
+
+    );
+
+  }
+}
+
+
+
+export default myAccount;

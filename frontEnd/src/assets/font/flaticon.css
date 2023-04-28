@@ -1,0 +1,113 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "flaticon";
+  src: url("./flaticon.ttf?2c5a1d331b80809feb2c65bb347d8792") format("truetype"), url("./flaticon.woff?2c5a1d331b80809feb2c65bb347d8792") format("woff"), url("./flaticon.woff2?2c5a1d331b80809feb2c65bb347d8792") format("woff2"), url("./flaticon.eot?2c5a1d331b80809feb2c65bb347d8792#iefix") format("embedded-opentype"), url("./flaticon.svg?2c5a1d331b80809feb2c65bb347d8792#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+  font-family: flaticon !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-user:before {
+  content: "";
+}
+
+.flaticon-magnifier:before {
+  content: "";
+}
+
+.flaticon-next:before {
+  content: "";
+}
+
+.flaticon-double-checking:before {
+  content: "";
+}
+
+.flaticon-arrival:before {
+  content: "";
+}
+
+.flaticon-calendar:before {
+  content: "";
+}
+
+.flaticon-play-button-arrowhead:before {
+  content: "";
+}
+
+.flaticon-guide:before {
+  content: "";
+}
+
+.flaticon-trust:before {
+  content: "";
+}
+
+.flaticon-experience:before {
+  content: "";
+}
+
+.flaticon-traveller:before {
+  content: "";
+}
+
+.flaticon-comment:before {
+  content: "";
+}
+
+.flaticon-footprints:before {
+  content: "";
+}
+
+.flaticon-gallery:before {
+  content: "";
+}
+
+.flaticon-clock:before {
+  content: "";
+}
+
+.flaticon-group:before {
+  content: "";
+}
+
+.flaticon-translate:before {
+  content: "";
+}
+
+.flaticon-clipboard:before {
+  content: "";
+}
+
+.flaticon-info:before {
+  content: "";
+}
+
+.flaticon-public-transport:before {
+  content: "";
+}
+
+.flaticon-reply-arrow:before {
+  content: "";
+}
+
+.flaticon-clock-1:before {
+  content: "";
+}
+
+.flaticon-thumbs-up:before {
+  content: "";
+}
+
+.flaticon-customer-service:before {
+  content: "";
+}
+/*# sourceMappingURL=flaticon.css.map */

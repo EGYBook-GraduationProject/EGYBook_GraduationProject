@@ -1,0 +1,52 @@
+/*=========================
+	All css imported
+==========================*/
+
+@import url("./assets/css/animate.css");
+@import url("./assets/css/magnific-popup.css");
+@import url("./assets/css/bootstrap.min.css");
+@import url("./assets/css/boxicons.min.css");
+@import url("./assets/css/boxicons.min.css");
+@import url("./assets/font/flaticon.css");
+/*@import url("./assets/css/owl.carousel.min.css");*/
+@import url("./assets/css/style.css");
+@import url("./assets/css/responsive.css");
+
+
+/*=========Customized Small Css Part========*/
+i#packageCalenderIcon{
+    top: 35% !important;
+}
+
+#packageCalenderMainDiv .react-datepicker-popper[data-placement^=bottom] {
+    padding-top: 0px!important;
+}
+
+.react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--selected, .react-datepicker__quarter-text--in-selecting-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--selected, .react-datepicker__year-text--in-selecting-range, .react-datepicker__year-text--in-range {
+    background-color: #ff7f47!important;
+}
+.react-datepicker__day--keyboard-selected, .react-datepicker__month-text--keyboard-selected, .react-datepicker__quarter-text--keyboard-selected, .react-datepicker__year-text--keyboard-selected {
+    border-radius: 0.3rem;
+    background-color: #ff7f47!important;
+    color: #fff;
+}
+.rangeslider-horizontal .rangeslider__handle:after {
+    background-color: #FF7F47!important;
+}
+.rangeslider-horizontal .rangeslider__fill {
+    background-color: #304F47!important;
+}
+.package-sidebar .sidebar-range .slider {
+    position: relative;
+}
+.package-sidebar .sidebar-range .slider .value {
+    text-align: right;
+    font-weight: bold;
+    position: absolute;
+    top: -30px;
+    right: 0px;
+}
+
+header .header-area .main-nav ul li a.active {
+    color: #FF7F47!important;
+}

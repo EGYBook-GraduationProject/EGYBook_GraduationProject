@@ -1,0 +1,5 @@
+{
+    "mongoosePort" :  "mongodb://Narimane:Narimane@cluster0-shard-00-00.sdsst.mongodb.net:27017,cluster0-shard-00-01.sdsst.mongodb.net:27017,cluster0-shard-00-02.sdsst.mongodb.net:27017/Project?replicaSet=atlas-5wzbwy-shard-0&ssl=true&authSource=admin",
+    "KeyAccess" : "KeyAccess",
+    "Keyrefresh":"Keyrefresh"
+}
